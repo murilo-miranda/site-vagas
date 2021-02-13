@@ -1,1 +1,5 @@
+<% unless user_signed_in? %>
+  <%= link_to 'Entrar', new_user_session_path %>
+<% end %>
+
 <h2>Vagas</h2>
