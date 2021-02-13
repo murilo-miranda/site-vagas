@@ -15,6 +15,7 @@
     <% if user_signed_in? %>
       <%= current_user.email %>
       <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Minha Empresa', company_path(@company) %>
     <% else %>
       <%= link_to 'Registrar-se', new_user_registration_path %>
     <% end %>

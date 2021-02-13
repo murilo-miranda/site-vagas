@@ -23,8 +23,14 @@ feature 'User create account' do
     click_on 'Registrar-se'
     click_on 'Cadastre-se'
 
-    expect(page).to have_content 'Não foi possível salvar usuário: 2 erros' #I18n
+    expect(page).to have_content 'Não foi possível salvar usuário: 2 erros'
     expect(page).to have_content 'E-mail não pode ficar em branco'
     expect(page).to have_content 'Senha não pode ficar em branco'
+  end
+
+  xscenario 'unsuccessfully - must be a valid email' do
+  end
+
+  xscenario 'unsuccessfully - weak password' do
   end
 end
