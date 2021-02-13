@@ -5,7 +5,7 @@ RSpec.describe Company, type: :model do
     it {should validate_presence_of(:name)}
     it {should validate_presence_of(:cnpj)}
     it {should validate_presence_of(:site)}
-    it {should validate_uniqueness_of(:cnpj)}
+    it {should validate_uniqueness_of(:cnpj).case_insensitive}
     it {should validate_uniqueness_of(:site)}
   end
 end
