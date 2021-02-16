@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       redirect_to @company
     else
-      render :new
+      render :edit
     end
   end
 
