@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   devise_for :users
-  resources :companies, only: [:index, :show, :edit]
+  #devise_for :users, controllers: { registrations: 'users/registrations'}
+  resources :companies, only: [:index, :show, :edit, :update]
 end

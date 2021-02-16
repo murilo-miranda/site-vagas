@@ -1,0 +1,35 @@
+<h1>Edição</h1>
+
+<div class='warning'>
+    <ul>
+    <% @company.errors.full_messages.each do |message|%>
+        <li> <%= message %> </li>
+    <% end %>
+    </ul>
+</div>
+
+<%= form_with model: @company do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :cnpj %>
+    <%= form.text_field :cnpj %>
+  </div>
+
+  <div>
+    <%= form.label :site %>
+    <%= form.text_field :site %>
+  </div>
+
+  <div>
+      <%= form.submit  %>
+  </div>
+<% end %>
