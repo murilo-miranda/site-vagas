@@ -1,0 +1,14 @@
+<div class="links">
+  <%= link_to 'Candidatura', root_path %>
+  <%= link_to 'Editar Informações', edit_company_path %>
+  <%= link_to 'Vagas', root_path %>
+</div>
+
+<div class="informations">
+  <h1> <%=  current_user.company.name %> </h1>
+  <%= current_user.company.logo %>
+  <%= current_user.company.address %>
+  <%= current_user.company.cnpj %>
+  <%= current_user.company.site %>
+  <%= current_user.company.social_network %>
+</div>

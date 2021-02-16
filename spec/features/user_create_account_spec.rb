@@ -2,8 +2,10 @@ require 'rails_helper'
 
 feature 'User create account' do
   scenario 'successfully' do
-    user = User.new(email: 'murilo@campuscode',
-                                password: '123456')
+    company = Company.create!(name: 'Muzak', address: 'Santana',
+                              cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
+    user = User.new(email: 'murilo@campuscode', password: '123456',
+                    company: company)
 
     visit root_path
     click_on 'Registrar-se'
