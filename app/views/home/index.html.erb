@@ -3,3 +3,18 @@
 <% end %>
 
 <h2>Vagas</h2>
+
+<% if @vacancies.empty? %>
+  <p>Não há vagas registradas</p>
+<% else %>
+  <ul>
+  <% @vacancies.each do |vacancy| %>
+    <li>
+      <%= vacancy.name %>
+      <%= vacancy.job_title %>
+      <%= vacancy.salary %>
+      <%= link_to 'Ver mais', vacancy_path(vacancy) %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

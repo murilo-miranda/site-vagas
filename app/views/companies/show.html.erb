@@ -5,10 +5,19 @@
 </div>
 
 <div class="informations">
-  <h1> <%=  current_user.company.name %> </h1>
-  <%= current_user.company.logo %>
-  <%= current_user.company.address %>
-  <%= current_user.company.cnpj %>
-  <%= current_user.company.site %>
-  <%= current_user.company.social_network %>
+  <% if user_signed_in? %>
+    <h1> <%= current_user.company.name %> </h1>
+    <%= current_user.company.logo %>
+    <%= current_user.company.address %>
+    <%= current_user.company.cnpj %>
+    <%= current_user.company.site %>
+    <%= current_user.company.social_network %>
+  <% else %>
+    <h1> <%= @company.name %> </h1>
+    <%= @company.logo %>
+    <%= @company.address %>
+    <%= @company.cnpj %>
+    <%= @company.site %>
+    <%= @company.social_network %>
+  <% end %>
 </div>
