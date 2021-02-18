@@ -1,11 +1,14 @@
 <h1>Todas as vagas de <%= current_user.company.name %>:</h1>
 
+<%= link_to 'Criar nova vaga', new_vacancy_path %>
+
 <ul>
   <% @vacancies.each do |vacancy| %>
     <li>
       <%= vacancy.name %>
       <%= vacancy.job_title %>
-      <%= vacancy.expiration_date %>
+      <%= vacancy.salary %>
+      <%= l vacancy.expiration_date %>
       <%= vacancy.max_vacancies %>
     </li>
   <% end %>

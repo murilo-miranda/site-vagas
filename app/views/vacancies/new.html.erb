@@ -1,0 +1,48 @@
+<h1>Criar Vaga</h1>
+
+<div class='warning'>
+    <ul>
+    <% @vacancy.errors.full_messages.each do |message|%>
+        <li> <%= message %> </li>
+    <% end %>
+    </ul>
+</div>
+
+<%= form_with model: @vacancy do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description, size: "60x10" %>
+  </div>
+  <div>
+    <%= f.label :salary %>
+    <%= f.text_field :salary%>
+  </div>
+  <div>
+    <%= f.label :job_title %>
+    <%= f.label :job_title, "Júnior" %>
+    <%= f.radio_button :job_title, "Júnior" %>
+    <%= f.label :job_title, "Pleno" %>
+    <%= f.radio_button :job_title, "Pleno" %>
+    <%= f.label :job_title, "Sênior" %>
+    <%= f.radio_button :job_title, "Sênior" %>
+  </div>
+  <div>
+    <%= f.label :mandatory_requirements %>
+    <%= f.text_area :mandatory_requirements, size: "60x10" %>
+  </div>
+  <div>
+    <%= f.label :expiration_date %>
+    <%= f.date_field :expiration_date %>
+  </div>
+  <div>
+    <%= f.label :max_vacancies %>
+    <%= f.text_field :max_vacancies %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

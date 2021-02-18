@@ -18,7 +18,7 @@ feature 'Employee visit vacancies page' do
 
     expect(page).to have_content(vacancy.name)
     expect(page).to have_content(vacancy.job_title)
-    expect(page).to have_content(vacancy.expiration_date)
+    expect(page).to have_content(I18n.l vacancy.expiration_date)
     expect(page).to have_content(vacancy.max_vacancies)
   end
 end

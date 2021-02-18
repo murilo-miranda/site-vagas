@@ -7,6 +7,9 @@ pt-BR:
       company:
         one: Empresa
         other: Empresas
+      vacancy:
+        one: Vaga
+        other: Vagas
     attributes:
       user:
         email: E-mail
@@ -18,3 +21,11 @@ pt-BR:
         cnpj: CNPJ
         site: Página Web
         social_network: Rede Social
+      vacancy:
+        name: Título
+        description: Descrição
+        salary: Faixa Salarial
+        job_title: Nível Experiência
+        mandatory_requirements: Requisitos Obrigatórios
+        expiration_date: Data Limite
+        max_vacancies: Total de Vagas
