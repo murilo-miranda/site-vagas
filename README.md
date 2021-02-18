@@ -1,24 +1,37 @@
-# README
+<h1 align="center"> CONSTRUÇÃO DO README EM PRODUÇÃO. </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h1 align="center"> [Projeto] - Site de Vagas </h1>
 
-Things you may want to cover:
+<p align="justify"> Esse projeto consiste na criação de uma plataforma Web para
+que pessoas dos departamentos de RH de empresas criem vagas e sejam capazes de
+gerenciar todo o processo. Além disso, a plataforma funciona como um site de busca
+de oportunidades para os visitantes. </p>
 
-* Ruby version
+[Trello](https://trello.com/b/WMQAkCbr/projeto-final-site-vagas)
 
-* System dependencies
+<h3> O que é possível fazer? </h3>
 
-* Configuration
+<p> - Funcionários da empresa da área de RH podem cadastrar a empresa no sistema </p>
+<p> - Funcionários da empresa da área de RH podem cadastrar novas vagas </p>
+<p> - Funcionários da empresa da área de RH podem gerenciar candidaturas recebidas </p>
+<p> - Visitantes podem acessar o site em busca de novas vagas e se candidatarem </p>
 
-* Database creation
+<h3> Tecnologias e Configuração </h3>
 
-* Database initialization
+<p> ruby - 3.0.0 </p>
+<p> rails - 6.1.1 - gem </p>
+<p> devise - gem </p>
+<p> capybara - gem </p>
+<p> shoulda-matchers - gem </p>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h4> Configurar e executar o projeto: </h4>
+<p> 1. Copie o projeto para sua máquina </p>
+<p> git clone https://github.com/murilo-miranda/site-vagas.git <p>
+<p> 2. Acesse a pasta do projeto <p>
+<p> cd site-vagas.git <p>
+<p> 3. Instale as dependências <p>
+<p> bundle install <p>
+<p> 4. Inicie a aplicação <p>
+<p> rails server <p>
+<p> 5. Acesse a aplicação utilizando um navegador <p>
+<p> http://localhost:3000/ <p>
