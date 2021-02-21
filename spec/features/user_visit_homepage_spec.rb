@@ -53,6 +53,9 @@ feature 'User visit homepage' do
     expect(page).to have_content(vacancy.salary)
     expect(page).to have_content(vacancy.job_title)
     expect(page).to have_content(vacancy.mandatory_requirements)
+    expect(page).to have_link('Voltar')
+    click_on ('Voltar')
+    expect(current_path).to eq(root_path)
   end
 
   scenario 'and check for company information' do
@@ -76,5 +79,13 @@ feature 'User visit homepage' do
     expect(page).to have_content(company.address)
     expect(page).to have_content(company.cnpj)
     expect(page).to have_content(company.site)
+    expect(page).to have_link('Vagas')
+    expect(page).to have_no_link('Candidatura')
+    expect(page).to have_no_link('Editar')
+    expect(page).to have_link('Voltar')
+    click_on ('Voltar')
+    expect(page).to have_content(vacancy.name)
+    expect(page).to have_content(vacancy.description)
+    expect(page).to have_content(vacancy.salary)
   end
 end

@@ -17,6 +17,7 @@ describe 'Employee visit company page' do
     expect(page).to have_content(company.address)
     expect(page).to have_content(company.site)
     #expect(page).to have_content(company.social_network) Verificar como mostrar as 3
+    expect(page).to have_no_link('Voltar')
   end
 
   xscenario 'and sees all registered vacancies' do

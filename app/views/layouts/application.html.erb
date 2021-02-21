@@ -14,10 +14,11 @@
     <br><br>
     <% if user_signed_in? %>
       <%= current_user.email %>
-      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
       <%= link_to 'Minha Empresa', company_path(current_user.company.id) %>
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Registrar-se', new_user_registration_path %>
+      <%= link_to 'Entrar', new_user_session_path %>
     <% end %>
 
 

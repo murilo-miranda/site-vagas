@@ -1,7 +1,11 @@
 <div class="links">
-  <%= link_to 'Candidatura', root_path %>
-  <%= link_to 'Editar', edit_company_path %>
-  <%= link_to 'Vagas', vacancies_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'Candidatura', root_path %>
+    <%= link_to 'Editar', edit_company_path %>
+    <%= link_to 'Vagas', vacancies_path %>
+  <% else %>
+    <%= link_to 'Vagas', vacancies_path %>
+  <% end %>
 </div>
 
 <div class="informations">
@@ -21,3 +25,5 @@
     <%= @company.social_network %>
   <% end %>
 </div>
+
+<%= link_to 'Voltar', :back %>
