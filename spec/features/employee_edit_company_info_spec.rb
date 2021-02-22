@@ -6,9 +6,6 @@ feature 'Employee edit company info' do
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
     employee = User.create!(email: 'murilo@muzak', password: '123456', company: company)
 
-    #social_network
-    #logo
-
     login_as employee
     visit root_path
     click_on 'Minha Empresa'

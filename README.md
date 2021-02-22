@@ -26,12 +26,16 @@ de oportunidades para os visitantes. </p>
 
 <h4> Configurar e executar o projeto: </h4>
 <p> 1. Copie o projeto para sua máquina </p>
-<p> git clone https://github.com/murilo-miranda/site-vagas.git <p>
-<p> 2. Acesse a pasta do projeto <p>
-<p> cd site-vagas.git <p>
-<p> 3. Instale as dependências <p>
-<p> bundle install <p>
-<p> 4. Inicie a aplicação <p>
-<p> rails server <p>
-<p> 5. Acesse a aplicação utilizando um navegador <p>
-<p> http://localhost:3000/ <p>
+<p> git clone https://github.com/murilo-miranda/site-vagas.git </p>
+<p> 2. Acesse a pasta do projeto </p>
+<p> cd site-vagas.git </p>
+<p> 3. Instale as dependências </p>
+<p> bundle install </p>
+<p> 4. Inicie a aplicação </p>
+<p> rails server </p>
+<p> 5. Acesse a aplicação utilizando um navegador </p>
+<p> http://localhost:3000/ </p>
+<p> 6. Utilize uma das contas abaixo para acessar a aplicação </p>
+<p> - Empresa Muzak: e-mail: murilo@muzak password: 123456</p>
+<p> - Empresa Kaiba: e-mail: seto@kaiba password: 123456</p>
+<p> - Usuário comum: e-mail: murilo@gmail password: 123456</p>
