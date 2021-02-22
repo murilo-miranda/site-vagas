@@ -11,7 +11,9 @@
 <div class="informations">
   <% if user_signed_in? %>
     <h1> <%= current_user.company.name %> </h1>
-    <%= current_user.company.logo %>
+    <% if current_user.company.logo.attached? %>
+      <%= image_tag current_user.company.logo %>
+    <% end %>
     <%= current_user.company.address %>
     <%= current_user.company.cnpj %>
     <%= current_user.company.site %>
@@ -26,4 +28,6 @@
   <% end %>
 </div>
 
-<%= link_to 'Voltar', :back %>
+<% unless user_signed_in? %>
+  <%= link_to 'Voltar', :back %>
+<% end %>

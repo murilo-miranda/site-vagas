@@ -1,6 +1,7 @@
 class VacanciesController < ApplicationController
   def index
-    @vacancies = Vacancy.all
+    @company = current_user.company
+    @vacancies = Vacancy.where(company: @company)
   end
 
   def new
@@ -9,6 +10,7 @@ class VacanciesController < ApplicationController
 
   def create
     @vacancy = Vacancy.new(vacancy_params)
+    @vacancy.company = current_user.company
 
     if @vacancy.save
       redirect_to vacancies_path

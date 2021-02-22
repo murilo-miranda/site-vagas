@@ -6,6 +6,7 @@
   <ul>
   <% @vacancies.each do |vacancy| %>
     <li>
+      <%= vacancy.company.name %>
       <%= vacancy.name %>
       <%= vacancy.job_title %>
       <%= vacancy.salary %>

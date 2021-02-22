@@ -11,22 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   POST /resource
   def create
-    @user = User.new(user_params)
-
-    domain = look_domain(@user.email)
-
-    if Company.find_by(name: 'domain') != nil
-      Company.create
-    else
-      user_params
-    end
-
-
-    if @article.save
-      redirect_to root_path
-    else
-      render :new
-    end
     super
   end
 
