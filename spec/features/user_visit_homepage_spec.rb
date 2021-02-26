@@ -94,4 +94,17 @@ feature 'User visit homepage' do
     expect(page).to have_content(vacancy.description)
     expect(page).to have_content(vacancy.salary)
   end
+
+  scenario 'logged in' do
+    company = Company.create!(name: 'Provisório', address: 'Provisório',
+                      cnpj: '12.345.678/0001-90', site: 'www.provisório.com.br')
+    visitor = User.create!(email: 'murilo@gmail', password: '123456', company: company)
+
+
+    login_as visitor
+    visit root_path
+    expect(page).to have_no_link('Minha Empresa')
+    expect(page).to have_link('Meu perfil')
+    expect(page).to have_link('Sair')
+  end
 end

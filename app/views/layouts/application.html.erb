@@ -14,7 +14,11 @@
     <br><br>
     <% if user_signed_in? %>
       <%= current_user.email %>
-      <%= link_to 'Minha Empresa', company_path(current_user.company.id) %>
+      <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
+        <%= link_to 'Minha Empresa', company_path(current_user.company.id) %>
+      <% else %>
+        <%= link_to 'Meu perfil', account_path(current_user) %>
+      <% end %>
       <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Registrar-se', new_user_registration_path %>

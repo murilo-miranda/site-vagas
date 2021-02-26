@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_012553) do
+ActiveRecord::Schema.define(version: 2021_02_26_175023) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "name"
+    t.string "cpf"
+    t.string "telephone"
+    t.text "biography"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_012553) do
     t.index ["company_id"], name: "index_vacancies_on_company_id"
   end
 
+  add_foreign_key "accounts", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "users", "companies"

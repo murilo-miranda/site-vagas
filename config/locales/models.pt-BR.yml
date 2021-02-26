@@ -10,6 +10,9 @@ pt-BR:
       vacancy:
         one: Vaga
         other: Vagas
+      account:
+        one: Conta
+        other: Contas
     attributes:
       user:
         email: E-mail
@@ -29,3 +32,8 @@ pt-BR:
         mandatory_requirements: Requisitos Obrigatórios
         expiration_date: Data Limite
         max_vacancies: Total de Vagas
+      account:
+        name: Nome
+        cpf: CPF
+        telephone: Telefone
+        biography: Resumo

@@ -1,0 +1,35 @@
+<h1>Edição</h1>
+
+<div class='warning'>
+    <ul>
+    <% @account.errors.full_messages.each do |message|%>
+        <li> <%= message %> </li>
+    <% end %>
+    </ul>
+</div>
+
+<%= form_with model: @account do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :telephone %>
+    <%= form.text_field :telephone %>
+  </div>
+
+  <div>
+    <%= form.label :biography %>
+    <%= form.text_area :biography, size: "60x10" %>
+  </div>
+
+  <div>
+      <%= form.submit  %>
+  </div>
+<% end %>

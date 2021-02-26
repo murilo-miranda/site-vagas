@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+temporary_company = Company.create!(name: 'Temporário', cnpj: '12.345.678/0001-91',
+                                    site: 'temporário.com.br')
+
 muzak_company = Company.create!(name: 'Muzak', address: 'Santana',
                 cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
 
@@ -51,4 +54,4 @@ User.create!(email: 'murilo@muzak', password: '123456', company: muzak_company)
 
 User.create!(email: 'seto@kaiba', password: '123456', company: kaiba_corp)
 
-User.create!(email: 'murilo@gmail', password: '123456', company: muzak_company)
+User.create!(email: 'murilo@gmail', password: '123456', company: temporary_company)

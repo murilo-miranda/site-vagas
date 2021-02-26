@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   #devise_for :users, controllers: { registrations: 'users/registrations'}
   resources :companies, only: [:index, :show, :edit, :update]
   resources :vacancies
+  resources :accounts
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User create account' do
+feature 'Employee create account' do
   scenario 'successfully' do
     user = User.new(email: 'murilo@campuscode', password: '123456')
 

@@ -1,0 +1,8 @@
+<h1>Informações do usuário</h1>
+
+<p>Nome: <%= @account.name %> </p>
+<p>CPF: <%= @account.cpf %> </p>
+<p>Telefone: <%= @account.telephone %> </p>
+<p>Biografia: <%= @account.biography %> </p>
+
+<%= link_to 'Editar', edit_account_path(@account) %>

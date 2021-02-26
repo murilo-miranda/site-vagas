@@ -2,6 +2,11 @@ require 'rails_helper'
 
 feature 'User apply for job' do
   xscenario 'successfully' do
+    company = Company.create!(name: 'Provisório', address: 'Provisório',
+                      cnpj: '12.345.678/0001-90', site: 'www.provisório.com.br')
+    visitor = User.create!(email: 'murilo@gmail', password: '123456', company: company)
+
+
   end
 
   xscenario 'unsuccessfully - without an account' do
