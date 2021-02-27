@@ -17,6 +17,10 @@ class AccountsController < ApplicationController
     end
   end
 
+  def applications
+    @applications = SignJob.find_by(user: current_user.id)
+  end
+
   private
 
     def account_params

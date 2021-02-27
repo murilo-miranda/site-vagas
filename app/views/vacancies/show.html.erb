@@ -1,3 +1,7 @@
+<% if flash[:sign_job_notice] %>
+  <%= flash[:sign_job_notice] %>
+<% end %>
+
 <h1> <%= link_to @company.name, company_path(@company)  %> </h1>
 <h2> <%= @vacancy.name %> </h2>
 <p> Descrição: <%= @vacancy.description %> </p>
@@ -5,3 +9,4 @@
 <p> Experiência: <%= @vacancy.job_title %> </p>
 <p> Requisitos: <%= @vacancy.mandatory_requirements %> </p>
 <%= link_to 'Voltar', root_path%>
+<%= link_to 'Aplicar', apply_vacancy_path(@vacancy), method: :post%>

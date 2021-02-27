@@ -25,6 +25,18 @@ class VacanciesController < ApplicationController
     @company = Company.last
   end
 
+  def apply
+    @vacancy = Vacancy.find(params[:id])
+    if user_signed_in?
+      SignJob.create!(user: current_user, vacancy: @vacancy)
+      flash[:sign_job_notice] = 'Inscrição realizada com sucesso'
+      redirect_to applications_accounts_path
+    else
+      flash[:sign_job_notice] = 'Você precisa estar logado para fazer essa ação'
+      redirect_to vacancy_path(@vacancy)
+    end
+  end
+
   private
 
   def vacancy_params

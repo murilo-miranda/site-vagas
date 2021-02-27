@@ -18,6 +18,7 @@
         <%= link_to 'Minha Empresa', company_path(current_user.company.id) %>
       <% else %>
         <%= link_to 'Meu perfil', account_path(current_user) %>
+        <%= link_to 'Minhas inscrições', applications_accounts_path %>
       <% end %>
       <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
     <% else %>

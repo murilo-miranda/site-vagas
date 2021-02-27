@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   devise_for :users
   #devise_for :users, controllers: { registrations: 'users/registrations'}
   resources :companies, only: [:index, :show, :edit, :update]
-  resources :vacancies
-  resources :accounts
+  resources :vacancies do
+    post 'apply', on: :member
+  end
+  resources :accounts do
+    get 'applications', on: :collection
+  end
 end

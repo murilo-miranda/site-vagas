@@ -1,30 +1,44 @@
 require 'rails_helper'
 
 feature 'User apply for job' do
-  xscenario 'successfully' do
-    company = Company.create!(name: 'Provisório', address: 'Provisório',
+  scenario 'successfully' do
+    temporary_company = Company.create!(name: 'Provisório', address: 'Provisório',
                       cnpj: '12.345.678/0001-90', site: 'www.provisório.com.br')
-    visitor = User.create!(email: 'murilo@gmail', password: '123456', company: company)
+    muzak_company = Company.create!(name: 'Muzak', address: 'Santana',
+                      cnpj: '12.345.678/0001-91', site: 'www.muzak.com.br')
+    vacancy = Vacancy.create!(name: 'Desenvolvedor Ruby on Rails',
+                      description: 'Nossa empresa procura por desenvolvedores',
+                      salary: 2.500, job_title: 'Júnior',
+                      mandatory_requirements: 'Conhecimento em Rails 6.0',
+                      expiration_date: '21/02/2021', max_vacancies: 20,
+                      company: muzak_company)
+    visitor = User.create!(email: 'murilo@gmail', password: '123456', company: temporary_company)
 
+    login_as visitor
+    visit root_path
+    click_on 'Ver mais'
+    click_on 'Aplicar'
+    click_on 'Minhas inscrições'
 
+    expect(current_path).to eq(applications_accounts_path)
+    expect(page).to have_content('Acompanhe suas inscrições')
+    expect(page).to have_content(vacancy.name)
+    expect(page).to have_content(muzak_company.name)
   end
 
-  xscenario 'unsuccessfully - without an account' do
+  scenario 'unsuccessfully - without an account' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    vacancy = Vacancy.create!(name: 'Programador Ruby',
-                              description: 'Possuimos sistemas legados e estamos'\
-                              ' a procura de programadores que nos ajudem a '\
-                              'fazer a transição para o novo rails 6.0',
-                              salary: 3000,
-                              job_title: 'Pleno',
-                              mandatory_requirements: 'Conhecimento de Rails '\
-                              'e 2 anos de experiência em desenvolvimento',
-                              expiration_date: '20/03/2021', max_vacancies: 5)
+    vacancy = Vacancy.create!(name: 'Desenvolvedor Ruby on Rails',
+                              description: 'Nossa empresa procura por desenvolvedores',
+                              salary: 2.500, job_title: 'Júnior',
+                              mandatory_requirements: 'Conhecimento em Rails 6.0',
+                              expiration_date: '21/02/2021', max_vacancies: 20,
+                              company: company)
 
     visit root_path
     click_on('Ver mais')
-    click_on('Candidatar-se')
+    click_on('Aplicar')
 
     expect(page).to have_content('Você precisa estar logado para fazer essa ação')
     expect(page).to have_content(company.name)
