@@ -37,6 +37,9 @@ class VacanciesController < ApplicationController
     end
   end
 
+  def candidates
+  end
+
   private
 
   def vacancy_params

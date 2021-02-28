@@ -1,4 +1,10 @@
 <h1> Acompanhe suas inscrições </h1>
 
-<%= @applications.vacancy.name %> -
-<%= @applications.vacancy.company.name %> -
+<ul>
+<% @vacancies.map do |registration| %>
+  <li>
+    <%= registration.name %> -
+    <%= registration.company.name %>
+  </li>
+<% end %>
+</ul>

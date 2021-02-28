@@ -17,6 +17,7 @@ feature 'User visit homepage' do
 
     visit root_path
 
+    expect(page).to have_content('Home')
     expect(page).to have_content('Vagas')
     expect(page).to have_content(company.name)
     expect(page).to have_content(vacancy.name)
@@ -28,6 +29,7 @@ feature 'User visit homepage' do
 
     visit root_path
 
+    expect(page).to have_content('Home')
     expect(page).to have_content('Vagas')
     expect(page).to have_content('Não há vagas registradas')
   end

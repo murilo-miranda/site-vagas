@@ -12,6 +12,8 @@
 
   <body>
     <br><br>
+    <%= link_to 'Home', root_path %>
+
     <% if user_signed_in? %>
       <%= current_user.email %>
       <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
@@ -25,7 +27,6 @@
       <%= link_to 'Registrar-se', new_user_registration_path %>
       <%= link_to 'Entrar', new_user_session_path %>
     <% end %>
-
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

@@ -8,11 +8,34 @@
 <p> Faixa Salarial: <%= @vacancy.salary %> </p>
 <p> Experiência: <%= @vacancy.job_title %> </p>
 <p> Requisitos: <%= @vacancy.mandatory_requirements %> </p>
-<%= link_to 'Voltar', root_path%>
-<%= link_to 'Aplicar', apply_vacancy_path(@vacancy), method: :post%>
 
 <% if user_signed_in? %>
   <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
-    <%= link_to 'Ver candidatos', candidates_companies_path %>
+    <%= link_to 'Voltar', vacancies_path %>
+  <% else %>
+    <%= link_to 'Voltar', root_path  %>
+  <% end %>
+<% else %>
+  <%= link_to 'Voltar', root_path  %>
+<% end %>
+
+<% if user_signed_in? %>
+  <% unless current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
+    <%= link_to 'Aplicar', apply_vacancy_path(@vacancy), method: :post%>
+  <% end %>
+<% else %>
+  <%= link_to 'Aplicar', apply_vacancy_path(@vacancy), method: :post%>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
+    <br>
+    <br>
+    <div>
+      <% @vacancy.users.map do |candidates|  %>
+        <%= candidates.email %>
+        <%= candidates.account.name %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>

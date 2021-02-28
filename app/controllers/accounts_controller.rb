@@ -18,7 +18,14 @@ class AccountsController < ApplicationController
   end
 
   def applications
-    @applications = SignJob.find_by(user: current_user.id)
+    applications_account = SignJob.where(user: current_user.id)
+    vacancies_ids = []
+
+    applications_account.map do |application|
+      vacancies_ids << application.vacancy.id
+    end
+
+    @vacancies = Vacancy.where(id: vacancies_ids)
   end
 
   private

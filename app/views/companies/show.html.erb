@@ -1,6 +1,5 @@
 <div class="links">
   <% if user_signed_in? %>
-    <%= link_to 'Candidatura', candidates_companies_path %>
     <%= link_to 'Editar', edit_company_path %>
     <%= link_to 'Vagas', vacancies_path %>
   <% else %>
@@ -20,7 +19,9 @@
     <%= current_user.company.social_network %>
   <% else %>
     <h1> <%= @company.name %> </h1>
-    <%= @company.logo %>
+    <% if @company.logo.attached? %>
+      <%= image_tag @company.logo %>
+    <% end %>
     <%= @company.address %>
     <%= @company.cnpj %>
     <%= @company.site %>
