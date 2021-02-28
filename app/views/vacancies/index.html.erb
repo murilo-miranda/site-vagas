@@ -5,7 +5,7 @@
 <ul>
   <% @vacancies.each do |vacancy| %>
     <li>
-      <%= vacancy.name %>
+      <%= link_to vacancy.name, vacancy_path(vacancy) %>
       <%= vacancy.job_title %>
       <%= vacancy.salary %>
       <%= l vacancy.expiration_date %>

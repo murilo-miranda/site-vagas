@@ -10,3 +10,9 @@
 <p> Requisitos: <%= @vacancy.mandatory_requirements %> </p>
 <%= link_to 'Voltar', root_path%>
 <%= link_to 'Aplicar', apply_vacancy_path(@vacancy), method: :post%>
+
+<% if user_signed_in? %>
+  <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
+    <%= link_to 'Ver candidatos', candidates_companies_path %>
+  <% end %>
+<% end %>

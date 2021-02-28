@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   belongs_to :company
+  has_many :sign_jobs
+  has_many :vacancies, through: :sign_jobs
   has_one :account
 
   # Include default devise modules. Others available are:

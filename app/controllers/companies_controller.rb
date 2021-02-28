@@ -17,6 +17,10 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def candidates
+
+  end
+
   private
 
     def company_params

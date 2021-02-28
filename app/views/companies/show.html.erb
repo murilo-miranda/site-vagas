@@ -1,6 +1,6 @@
 <div class="links">
   <% if user_signed_in? %>
-    <%= link_to 'Candidatura', root_path %>
+    <%= link_to 'Candidatura', candidates_companies_path %>
     <%= link_to 'Editar', edit_company_path %>
     <%= link_to 'Vagas', vacancies_path %>
   <% else %>
