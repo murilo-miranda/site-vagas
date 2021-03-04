@@ -41,7 +41,4 @@ feature 'Employee edit company info' do
     expect(page).to have_content('não pode ficar em branco', :count => 3)
     expect(page).to have_button('Atualizar Empresa')
   end
-
-  xscenario 'uploading a logo' do
-  end
 end

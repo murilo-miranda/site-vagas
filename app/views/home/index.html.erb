@@ -24,16 +24,18 @@
     <p>Não há vagas registradas</p>
   <% else %>
     <ul>
-    <% @vacancies.each do |vacancy| %>
-      <li>
-        <%= vacancy.company.name %>
-        <%= vacancy.name %>
-        <%= vacancy.job_title %>
-        <%= vacancy.salary %>
-        <%= link_to 'Ver mais', vacancy_path(vacancy) %>
-      </li>
-    <% end %>
-    </ul>
+      <% @vacancies.each do |vacancy| %>
+        <% unless vacancy.expiration_date <= Time.now %>
+          <li>
+            <%= vacancy.company.name %>
+            <%= vacancy.name %>
+            <%= vacancy.job_title %>
+            <%= vacancy.salary %>
+            <%= link_to 'Ver mais', vacancy_path(vacancy) %>
+          </li>
+        <% end %>
+      <% end %>
+      </ul>
   <% end %>
 <% end %>
 

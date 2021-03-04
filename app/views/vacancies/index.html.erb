@@ -4,12 +4,12 @@
 
 <ul>
   <% @vacancies.each do |vacancy| %>
-    <li>
-      <%= link_to vacancy.name, vacancy_path(vacancy) %>
-      <%= vacancy.job_title %>
-      <%= vacancy.salary %>
-      <%= l vacancy.expiration_date %>
-      <%= vacancy.max_vacancies %>
-    </li>
+      <li>
+        <%= link_to vacancy.name, vacancy_path(vacancy) %>
+        <%= vacancy.job_title %>
+        <%= vacancy.salary %>
+        <%= l vacancy.expiration_date %>
+        <%= vacancy.max_vacancies %>
+      </li>
   <% end %>
 </ul>

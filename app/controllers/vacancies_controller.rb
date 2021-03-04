@@ -47,5 +47,5 @@ class VacanciesController < ApplicationController
   def vacancy_params
       params.require(:vacancy).permit(:name, :description, :salary, :job_title,
       :mandatory_requirements, :expiration_date, :max_vacancies)
-    end
+  end
 end

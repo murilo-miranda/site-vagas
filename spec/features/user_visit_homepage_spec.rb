@@ -34,7 +34,34 @@ feature 'User visit homepage' do
     expect(page).to have_content('Não há vagas registradas')
   end
 
-  xscenario 'and must not see inactive vacancy nor expirated' do
+  scenario 'and must not see inactive vacancy nor expirated' do
+    company = Company.create!(name: 'Muzak', address: 'Santana',
+                              cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
+    vacancy1 = Vacancy.create!(name: 'Programador Ruby',
+                              description: 'Possuimos sistemas legados e estamos'\
+                              ' a procura de programadores que nos ajudem a '\
+                              'fazer a transição para o novo rails 6.0',
+                              salary: 3000,
+                              job_title: 'Pleno',
+                              mandatory_requirements: 'Conhecimento de Rails '\
+                              'e 2 anos de experiência em desenvolvimento',
+                              expiration_date: '20/03/2021', max_vacancies: 5,
+                              company: company)
+    vacancy2 = Vacancy.create!(name: 'Programador PHP',
+                              description: 'Desejamos criar um novo sistema'\
+                              ' e estamos procurando um desenvolvedor PHP '\
+                              'para fazer parte do nosso time',
+                              salary: 3000,
+                              job_title: 'Pleno',
+                              mandatory_requirements: 'Conhecimento de PHP '\
+                              'e 2 anos de experiência em desenvolvimento',
+                              expiration_date: '03/03/2021', max_vacancies: 5,
+                              company: company)
+
+    visit root_path
+
+    expect(page).to have_content(vacancy1.name)
+    expect(page).to have_no_content(vacancy2.name)
   end
 
   scenario 'and check for more information' do
