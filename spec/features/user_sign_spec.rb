@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'User sign' do
   scenario 'successfully' do
-
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    user = User.create!(email: 'murilo@muzak', password: '123456',
-                            company: company)
+    user = User.create!(email: 'murilo@muzak.com', password: '123456')
+    user.company = company
+    user.save
 
     visit root_path
     click_on 'Entrar'

@@ -65,8 +65,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def user_params
     params.require(:user).permit(:email, :password, :company)
   end
-
-  def look_domain(email)
-    email.match /(?<=@)[^.]+(?=\.)/
-  end
 end

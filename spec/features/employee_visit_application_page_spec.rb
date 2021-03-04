@@ -2,10 +2,7 @@ require 'rails_helper'
 
 describe 'Employee visit application page' do
   scenario 'to look candidates' do
-    temporary_company = Company.create!(name: 'Temporário', cnpj: '12.345.678/0001-91',
-                                    site: 'temporário.com.br')
-    muzak_company = Company.create!(name: 'Muzak', address: 'Santana',
-                                    cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
     vacancy = Vacancy.create!(name: 'Programador Ruby',
                     description: 'Possuimos sistemas legados e estamos'\
                     ' a procura de programadores que nos ajudem a '\
@@ -14,9 +11,9 @@ describe 'Employee visit application page' do
                     mandatory_requirements: 'Conhecimento de Rails '\
                     'e 3 anos de experiência em desenvolvimento',
                     expiration_date: '20/03/2021', max_vacancies: 5,
-                    company: muzak_company)
-    employee = User.create!(email: 'murilo@muzak', password: '123456', company: muzak_company)
-    visitor = User.create!(email: 'murilo@gmail', password: '123456', company: temporary_company)
+                    company: employee.company)
+
+    visitor = User.create!(email: 'murilo@gmail.com', password: '123456')
     Account.create!(name: 'Murilo Miranda', cpf: '000.000.000-00',
                     telephone: '(11)99999-9999', biography: 'Formação X, conhecimento Y',
                     user: visitor)

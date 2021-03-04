@@ -4,26 +4,28 @@ describe 'Employee visit company page' do
   scenario 'and sees all company information' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    employee = User.create!(email: 'murilo@muzak', password: '123456', company: company)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
+    employee.company = company
+    employee.save
 
     login_as employee
     visit root_path
     click_on 'Minha Empresa'
 
-    expect(current_path).to eq(company_path(company))
-    expect(page).to have_content(company.name)
-    #expect(page).to have_content(company.logo)
-    expect(page).to have_content(company.cnpj)
-    expect(page).to have_content(company.address)
-    expect(page).to have_content(company.site)
-    #expect(page).to have_content(company.social_network) Verificar como mostrar as 3
+    expect(current_path).to eq(company_path(employee.company))
+    expect(page).to have_content('Muzak')
+    expect(page).to have_content('12.345.678/0001-90')
+    expect(page).to have_content(employee.company.address)
+    expect(page).to have_content(employee.company.site)
     expect(page).to have_no_link('Voltar')
   end
 
   scenario 'and sees all registered vacancies' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    employee = User.create!(email: 'murilo@muzak', password: '123456', company: company)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
+    employee.company = company
+    employee.save
     vacancy1 = Vacancy.create!(name: 'Programador Ruby',
                               description: 'Possuimos sistemas legados e estamos'\
                               ' a procura de programadores que nos ajudem a '\
@@ -63,10 +65,11 @@ describe 'Employee visit company page' do
   scenario 'and sees all job application of vacancy' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    temporary = Company.create!(name: 'Temporario', address: 'Temporario',
-                                cnpj: '12.345.678/0001-91', site: 'www.temporario.com.br')
-    employee = User.create!(email: 'murilo@muzak.com', password: '123456', company: company)
-    user = User.create!(email: 'murilo@gmail.com', password: '123456', company: temporary)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
+    employee.company = company
+    employee.save
+
+    user = User.create!(email: 'murilo@gmail.com', password: '123456')
     user_account = Account.create!(name: 'Murilo Miranda', cpf: '000.000.000-00',
                                   telephone: '(11)99999-9999', biography:'Conhecimento'\
                                   ' A, B e C.', user: user)

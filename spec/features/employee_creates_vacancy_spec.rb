@@ -4,7 +4,7 @@ feature 'Employee creates vacancy' do
   scenario 'successfully' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    employee = User.create!(email: 'murilo@muzak', password: '123456', company: company)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
 
     login_as employee
     visit root_path
@@ -33,7 +33,7 @@ feature 'Employee creates vacancy' do
   scenario 'unsuccessfully - blank fields' do
     company = Company.create!(name: 'Muzak', address: 'Santana',
                               cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
-    employee = User.create!(email: 'murilo@muzak', password: '123456', company: company)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456', company: company)
 
     login_as employee
     visit root_path

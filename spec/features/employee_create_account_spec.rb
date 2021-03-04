@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Employee create account' do
   scenario 'successfully' do
-    user = User.new(email: 'murilo@campuscode', password: '123456')
+    user = User.new(email: 'murilo@muzak.com', password: '123456')
 
     visit root_path
     click_on 'Registrar-se'
