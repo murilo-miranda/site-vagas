@@ -31,6 +31,8 @@ class VacanciesController < ApplicationController
         flash[:edit_account_notice] = 'Você precisa concluir seu cadastro'
         redirect_to vacancy_path(@vacancy)
       else
+        Offer.create!(user: current_user, vacancy: @vacancy, reason:'a',
+                      start_date: Time.now, salary: 'a')
         SignJob.create!(user: current_user, vacancy: @vacancy)
         flash[:sign_job_notice] = 'Inscrição realizada com sucesso'
         redirect_to applications_accounts_path

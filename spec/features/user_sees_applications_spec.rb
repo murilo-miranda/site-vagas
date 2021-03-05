@@ -18,7 +18,11 @@ feature 'User sees applications' do
     login_as visitor
     visit root_path
     click_on 'Minhas inscrições'
+    click_on vacancy.name
 
     expect(page).to have_content('aprovado')
+    expect(page).to have_content(offer.reason)
+    expect(page).to have_content(offer.start_date)
+    expect(page).to have_content(offer.salary)
   end
 end

@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :accounts, only: [:show, :edit, :update] do
     get 'applications', on: :collection
   end
-  resources :offers, only: [:new, :create]
+  resources :offers, only: [:new, :create, :show]
 end

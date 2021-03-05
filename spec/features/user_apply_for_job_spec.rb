@@ -15,6 +15,7 @@ feature 'User apply for job' do
                                       telephone: '(11)99999-9999',
                                       biography: 'Sei A,B,C', user: visitor)
     SignJob.create!(user: visitor, vacancy: vacancy)
+    visitor.reload
 
     login_as visitor
     visit root_path

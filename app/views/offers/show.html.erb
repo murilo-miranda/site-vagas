@@ -1,0 +1,10 @@
+<% @offers.map do |offer| %>
+  <% if offer.reason == 'a' %>
+    <p> Oferta se encontra como: <%= offer.status %> </p>
+  <% else %>
+    <p>Status: <%= offer.status %> </p>
+    <p>Mensagem: <%= offer.reason %> </p>
+    <p>Data de início: <%= offer.start_date %> </p>
+    <p>Salário <%= offer.salary %> </p>
+  <% end %>
+<% end %>

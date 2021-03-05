@@ -22,6 +22,10 @@ class OffersController < ApplicationController
     end
   end
 
+  def show
+    @offers = Offer.where(user: current_user, vacancy: params[:id])
+  end
+
   private
     def offer_params
       params.require(:offer).permit(:reason, :start_date, :salary, :status)
