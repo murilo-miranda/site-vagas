@@ -47,8 +47,16 @@ Vacancy.create!(name: 'Duel Disk connection',
                 expiration_date: '20/03/2021', max_vacancies: 3,
                 company: kaiba_corp)
 
-User.create!(email: 'murilo@muzak.com', password: '123456')
+muzak = User.create!(email: 'murilo@muzak.com', password: '123456')
+muzak.company = muzak_company
+muzak.save
 
-User.create!(email: 'seto@kaiba.com', password: '123456')
+kaiba = User.create!(email: 'seto@kaiba.com', password: '123456')
+kaiba.company = kaiba_corp
+kaiba.save
 
-User.create!(email: 'murilo@gmail.com', password: '123456')
+visitor = User.create!(email: 'murilo@gmail.com', password: '123456')
+
+Account.create!(user: visitor, name: 'Murilo Miranda', cpf: '000.000.000-00',
+                telephone: '(11)99999-9999', biography: 'Conhecimento em A e B')
+visitor.save

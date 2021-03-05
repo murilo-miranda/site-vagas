@@ -25,6 +25,7 @@ class AccountsController < ApplicationController
       vacancies_ids << application.vacancy.id
     end
 
+    @offers = Offer.where(user: current_user)
     @vacancies = Vacancy.where(id: vacancies_ids)
   end
 

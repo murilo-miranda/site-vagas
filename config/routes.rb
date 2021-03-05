@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :accounts do
     get 'applications', on: :collection
   end
+  resources :offers
 end

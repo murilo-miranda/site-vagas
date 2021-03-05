@@ -36,6 +36,6 @@ de oportunidades para os visitantes. </p>
 <p> 5. Acesse a aplicação utilizando um navegador </p>
 <p> http://localhost:3000/ </p>
 <p> 6. Utilize uma das contas abaixo para acessar a aplicação </p>
-<p> - Empresa Muzak: e-mail: murilo@muzak password: 123456</p>
-<p> - Empresa Kaiba: e-mail: seto@kaiba password: 123456</p>
-<p> - Usuário comum: e-mail: murilo@gmail password: 123456</p>
+<p> - Empresa Muzak: e-mail: murilo@muzak.com password: 123456</p>
+<p> - Empresa Kaiba: e-mail: seto@kaiba.com password: 123456</p>
+<p> - Usuário comum: e-mail: murilo@gmail.com password: 123456</p>

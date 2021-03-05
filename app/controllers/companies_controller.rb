@@ -12,7 +12,6 @@ class CompaniesController < ApplicationController
     if user_signed_in?
       user = current_user.company.id
       @company = Company.find_by(id: user)
-    #@company = Company.find(params[:id])
     end
   end
 
@@ -24,9 +23,6 @@ class CompaniesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def candidates
   end
 
   private

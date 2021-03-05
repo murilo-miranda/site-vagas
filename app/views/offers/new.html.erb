@@ -1,0 +1,27 @@
+<h1>Proposta</h1>
+
+<div class='warning'>
+    <ul>
+    <% @offer.errors.full_messages.each do |message|%>
+        <li> <%= message %> </li>
+    <% end %>
+    </ul>
+</div>
+
+<%= form_with model: @offer do |f|%>
+  <div>
+    <%= f.label :reason%>
+    <%= f.text_area :reason%>
+  </div>
+  <div>
+    <%= f.label :start_date%>
+    <%= f.date_field :start_date%>
+  </div>
+  <div>
+    <%= f.label :salary%>
+    <%= f.text_field :salary%>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_192616) do
+ActiveRecord::Schema.define(version: 2021_03_05_063324) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 2021_03_04_192616) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "vacancy_id", null: false
+    t.text "reason"
+    t.integer "status", default: 0
+    t.date "start_date"
+    t.decimal "salary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_offers_on_user_id"
+    t.index ["vacancy_id"], name: "index_offers_on_vacancy_id"
+  end
+
   create_table "sign_jobs", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "vacancy_id", null: false
@@ -102,6 +115,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_192616) do
   add_foreign_key "accounts", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "offers", "users"
+  add_foreign_key "offers", "vacancies"
   add_foreign_key "sign_jobs", "users"
   add_foreign_key "sign_jobs", "vacancies"
   add_foreign_key "users", "companies"

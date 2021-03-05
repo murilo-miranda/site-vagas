@@ -54,8 +54,16 @@ describe 'Employee visit application page' do
     click_on 'Vagas'
     click_on vacancy.name
     click_on 'Aprovar'
+    fill_in 'Informação', with: 'Li o seu perfil e gostei das informações que encontrei '\
+                                'são justamente o que estamos procurando.'\
+                                'Segue as informações do contrato nos campos. '\
+                                'Por favor me envie sua resposta para '\
+                                'darmos continuidade.'
+    fill_in 'Data de início', with: '30/03/2021'
+    fill_in 'Salário', with: 4000
+    click_on 'Criar Proposta'
 
-    expect(page).to have_content('Aprovação enviada para murilo@gmail.com')
-    expect(page).to have_not_content(candidate.email)
+    expect(page).to have_content('Proposta enviada com sucesso')
+    expect(page).to have_no_content(candidate.email)
   end
 end

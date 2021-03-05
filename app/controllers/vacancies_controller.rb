@@ -21,7 +21,6 @@ class VacanciesController < ApplicationController
 
   def show
     @vacancy = Vacancy.find(params[:id])
-    #Retirar linha abaixo após fazer associações
     @company = Company.find_by(vacancy: @vacancy)
   end
 

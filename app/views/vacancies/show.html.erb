@@ -38,7 +38,7 @@
       <% @vacancy.users.map do |candidates|  %>
         <%= candidates.email %>
         <%= candidates.account.name %>
-        <%= link_to 'Aprovar', banana_path %>
+        <%= link_to 'Aprovar', new_offer_path(:user => candidates, :vacancy => @vacancy) %>
       <% end %>
     </div>
   <% end %>
