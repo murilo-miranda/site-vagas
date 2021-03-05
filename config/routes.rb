@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   #devise_for :users, controllers: { registrations: 'users/registrations'}
-  resources :companies, only: [:index, :show, :edit, :update]
-  resources :vacancies do
+  resources :companies, only: [:show, :edit, :update]
+  resources :vacancies, only: [:index, :new, :create, :show] do
     post 'apply', on: :member
     get 'candidates', on: :collection
   end
-  resources :accounts do
+  resources :accounts, only: [:show, :edit, :update] do
     get 'applications', on: :collection
   end
-  resources :offers
+  resources :offers, only: [:new, :create]
 end
