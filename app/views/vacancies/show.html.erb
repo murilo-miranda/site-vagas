@@ -38,6 +38,7 @@
       <% @vacancy.users.map do |candidates|  %>
         <%= candidates.email %>
         <%= candidates.account.name %>
+        <%= link_to 'Aprovar', banana_path %>
       <% end %>
     </div>
   <% end %>

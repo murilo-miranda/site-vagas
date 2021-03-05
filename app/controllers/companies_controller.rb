@@ -9,7 +9,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:id])
+    if user_signed_in?
+      user = current_user.company.id
+      @company = Company.find_by(id: user)
+    #@company = Company.find(params[:id])
+    end
   end
 
   def update

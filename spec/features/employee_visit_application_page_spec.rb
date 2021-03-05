@@ -29,4 +29,33 @@ describe 'Employee visit application page' do
     #aparece no servidor de desenvolvimento.
     expect(page).to have_content(visitor.email)
   end
+
+  scenario 'to approves a candidate' do
+    company = Company.create!(name: 'Muzak', address: 'Santana',
+                              cnpj: '12.345.678/0001-90', site: 'www.muzak.com.br')
+    vacancy = Vacancy.create!(name: 'Programador Ruby',
+                              description: 'Possuimos sistemas legados e estamos'\
+                              ' a procura de programadores que nos ajudem a '\
+                              'fazer a transição para o novo rails 6.0',
+                              salary: 4000, job_title: 'Pleno',
+                              mandatory_requirements: 'Conhecimento de Rails '\
+                              'e 3 anos de experiência em desenvolvimento',
+                              expiration_date: '28/03/2021', max_vacancies: 5,
+                              company: company)
+    candidate = User.create!(email: 'murilo@gmail.com', password: '123456')
+    SignJob.create!(user: candidate, vacancy: vacancy)
+    employee = User.create!(email: 'murilo@muzak.com', password: '123456')
+    employee.company = company
+    employee.save
+
+    login_as employee
+    visit root_path
+    click_on 'Minha Empresa'
+    click_on 'Vagas'
+    click_on vacancy.name
+    click_on 'Aprovar'
+
+    expect(page).to have_content('Aprovação enviada para murilo@gmail.com')
+    expect(page).to have_not_content(candidate.email)
+  end
 end
