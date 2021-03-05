@@ -114,14 +114,10 @@ feature 'User visit homepage' do
     expect(page).to have_content(company.address)
     expect(page).to have_content(company.cnpj)
     expect(page).to have_content(company.site)
-    expect(page).to have_link('Vagas')
+    expect(page).to have_no_link('Vagas')
     expect(page).to have_no_link('Candidatura')
     expect(page).to have_no_link('Editar')
     expect(page).to have_link('Voltar')
-    click_on ('Voltar')
-    expect(page).to have_content(vacancy.name)
-    expect(page).to have_content(vacancy.description)
-    expect(page).to have_content(vacancy.salary)
   end
 
   scenario 'logged in' do

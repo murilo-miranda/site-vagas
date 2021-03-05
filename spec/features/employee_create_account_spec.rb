@@ -32,4 +32,18 @@ feature 'Employee create account' do
 
   xscenario 'unsuccessfully - weak password' do
   end
+
+  scenario 'unsuccessfully - same email' do
+    User.create!(email: 'murilo@muzak.com', password: '123456')
+    user = User.new(email: 'murilo@muzak.com', password: '123456')
+
+    visit root_path
+    click_on 'Registrar-se'
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    fill_in 'user[password_confirmation]', with: user.password
+    click_on 'Cadastre-se'
+
+    expect(page).to have_content('E-mail já está em uso')
+  end
 end

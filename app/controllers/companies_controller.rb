@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
   def show
-    @company = Company.find(params[:id])
+    if user_signed_in?
+      user = current_user.company.id
+      @company = Company.find_by(id: user)
+    else
+      @company = Company.find(params[:id])
+    end
   end
 
   def edit

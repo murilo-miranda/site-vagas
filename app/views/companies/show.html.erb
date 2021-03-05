@@ -1,23 +1,13 @@
 <div class="links">
   <% if user_signed_in? %>
-    <%= link_to 'Editar', edit_company_path %>
-    <%= link_to 'Vagas', vacancies_path %>
-  <% else %>
-    <%= link_to 'Vagas', vacancies_path %>
+    <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
+      <%= link_to 'Editar', edit_company_path %>
+      <%= link_to 'Vagas', vacancies_path %>
+    <% end %>
   <% end %>
 </div>
 
 <div class="informations">
-  <% if user_signed_in? %>
-    <h1> <%= current_user.company.name %> </h1>
-    <% if current_user.company.logo.attached? %>
-      <%= image_tag current_user.company.logo %>
-    <% end %>
-    <%= current_user.company.address %>
-    <%= current_user.company.cnpj %>
-    <%= current_user.company.site %>
-    <%= current_user.company.social_network %>
-  <% else %>
     <h1> <%= @company.name %> </h1>
     <% if @company.logo.attached? %>
       <%= image_tag @company.logo %>
@@ -26,7 +16,6 @@
     <%= @company.cnpj %>
     <%= @company.site %>
     <%= @company.social_network %>
-  <% end %>
 </div>
 
 <% unless user_signed_in? %>
