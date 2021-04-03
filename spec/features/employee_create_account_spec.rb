@@ -27,12 +27,6 @@ feature 'Employee create account' do
     expect(page).to have_content 'Senha não pode ficar em branco'
   end
 
-  xscenario 'unsuccessfully - must be a valid email' do
-  end
-
-  xscenario 'unsuccessfully - weak password' do
-  end
-
   scenario 'unsuccessfully - same email' do
     User.create!(email: 'murilo@muzak.com', password: '123456')
     user = User.new(email: 'murilo@muzak.com', password: '123456')

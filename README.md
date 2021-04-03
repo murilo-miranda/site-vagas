@@ -10,10 +10,22 @@
 ![Badge](https://img.shields.io/static/v1?label=shoulda-matchers&message=gem&color=red&style=for-the-badge)
 
 ## Descrição
-Esse projeto consiste na criação de uma plataforma Web para que pessoas dos departamentos de RH de empresas criem vagas e sejam capazes de gerenciar todo o processo. Além disso, a plataforma funciona como um site de busca de oportunidades para os visitantes.
+Esse projeto (Desenvolvido durante o programa TreinaDev) consiste na criação de uma plataforma Web para que pessoas dos departamentos de RH de empresas criem vagas e sejam capazes de gerenciar todo o processo. Além disso, a plataforma funciona como um site de busca de oportunidades para os visitantes.
 
 ## Funcionalidades
 
+- Colaborador
+  - pode cria uma conta no sistema
+  - pode editar dados da empresa
+  - pode anunciar uma vaga
+  - pode visualizar as candidaturas recebidas
+  - pode fazer uma proposta para o candidato
+- Candidato
+  - pode visualizar as vagas cadastradas
+  - pode criar uma conta no sistema
+  - pode editar seus dados
+  - pode se candidatar para uma vaga
+  - pode visualizar suas candidaturas
 
 ## Configuração
 

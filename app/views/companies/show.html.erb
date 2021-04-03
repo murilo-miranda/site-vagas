@@ -1,9 +1,7 @@
 <div class="links">
-  <% if user_signed_in? %>
-    <% if current_user.email.include?('gmail') == false && current_user.email.include?('hotmail') == false %>
-      <%= link_to 'Editar', edit_company_path %>
-      <%= link_to 'Vagas', vacancies_path %>
-    <% end %>
+  <% if user_signed_in? && (current_user.email.match?(/gmail|hotmail/) == false) %>
+    <%= link_to 'Editar', edit_company_path %>
+    <%= link_to 'Vagas', vacancies_path %>
   <% end %>
 </div>
 

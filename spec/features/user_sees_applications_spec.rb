@@ -9,10 +9,10 @@ feature 'User sees applications' do
                               description: 'Nossa empresa procura por desenvolvedores',
                               salary: 2.500, job_title: 'Júnior',
                               mandatory_requirements: 'Conhecimento em Rails 6.0',
-                              expiration_date: '21/02/2021', max_vacancies: 20,
+                              expiration_date: Date.tomorrow, max_vacancies: 20,
                               company: muzak_comp)
-    offer = Offer.create!(reason: 'Gostamos do seu perfil', start_date: '30/03/2021',
-                          salary: 3000, user: visitor, vacancy: vacancy)
+    offer = Offer.create!(reason: 'Gostamos do seu perfil', start_date: Date.tomorrow,
+                          salary: 3000, user: visitor, vacancy: vacancy, status: :approved)
     SignJob.create!(user: visitor, vacancy: vacancy)
 
     login_as visitor
@@ -20,7 +20,7 @@ feature 'User sees applications' do
     click_on 'Minhas inscrições'
     click_on vacancy.name
 
-    expect(page).to have_content('aprovado')
+    expect(page).to have_content('approved')
     expect(page).to have_content(offer.reason)
     expect(page).to have_content(offer.start_date)
     expect(page).to have_content(offer.salary)

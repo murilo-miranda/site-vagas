@@ -22,7 +22,7 @@ Vacancy.create!(name: 'Programador Ruby',
                 job_title: 'Pleno',
                 mandatory_requirements: 'Conhecimento de Rails '\
                 'e 3 anos de experiência em desenvolvimento',
-                expiration_date: '20/03/2021', max_vacancies: 5,
+                expiration_date: '20/03/2025', max_vacancies: 5,
                 company: muzak_company)
 
 Vacancy.create!(name: 'Programador Ruby',
@@ -44,7 +44,7 @@ Vacancy.create!(name: 'Duel Disk connection',
                 job_title: 'Pleno',
                 mandatory_requirements: 'Conhecimentos em API e nosso querido '\
                 'produto.',
-                expiration_date: '20/03/2021', max_vacancies: 3,
+                expiration_date: '20/03/2025', max_vacancies: 3,
                 company: kaiba_corp)
 
 muzak = User.create!(email: 'murilo@muzak.com', password: '123456')

@@ -12,7 +12,7 @@ feature 'User visit homepage' do
                               job_title: 'Pleno',
                               mandatory_requirements: 'Conhecimento de Rails '\
                               'e 2 anos de experiência em desenvolvimento',
-                              expiration_date: '20/03/2021', max_vacancies: 5,
+                              expiration_date: Date.tomorrow, max_vacancies: 5,
                               company: company)
 
     visit root_path
@@ -45,7 +45,7 @@ feature 'User visit homepage' do
                               job_title: 'Pleno',
                               mandatory_requirements: 'Conhecimento de Rails '\
                               'e 2 anos de experiência em desenvolvimento',
-                              expiration_date: '20/03/2021', max_vacancies: 5,
+                              expiration_date: Date.tomorrow, max_vacancies: 5,
                               company: company)
     vacancy2 = Vacancy.create!(name: 'Programador PHP',
                               description: 'Desejamos criar um novo sistema'\
@@ -75,7 +75,7 @@ feature 'User visit homepage' do
                               job_title: 'Pleno',
                               mandatory_requirements: 'Conhecimento de Rails '\
                               'e 2 anos de experiência em desenvolvimento',
-                              expiration_date: '20/03/2021', max_vacancies: 5,
+                              expiration_date: Date.tomorrow, max_vacancies: 5,
                               company: company)
 
     visit root_path
@@ -103,7 +103,7 @@ feature 'User visit homepage' do
                               job_title: 'Pleno',
                               mandatory_requirements: 'Conhecimento de Rails '\
                               'e 2 anos de experiência em desenvolvimento',
-                              expiration_date: '20/03/2021', max_vacancies: 5,
+                              expiration_date: Date.tomorrow, max_vacancies: 5,
                               company: company)
 
     visit root_path

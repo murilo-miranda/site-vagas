@@ -1,12 +1,10 @@
 <h1> Acompanhe suas inscrições </h1>
 
 <ul>
-
-
-<% @vacancies.map do |registration| %>
-  <li>
-    <%= link_to registration.name, offer_path(registration)%> -
-    <%= registration.company.name %>
-  </li>
+  <% @vacancies.map do |registration| %>
+    <li>
+      <%= link_to registration.name, offer_path(registration)%> -
+      <%= registration.company.name %>
+    </li>
 <% end %>
 </ul>

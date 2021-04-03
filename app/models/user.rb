@@ -12,6 +12,10 @@ class User < ApplicationRecord
   before_create :create_company
   after_save :create_account
 
+  def visitor?
+    puts 'hi'
+  end
+
   private
 
     def create_account

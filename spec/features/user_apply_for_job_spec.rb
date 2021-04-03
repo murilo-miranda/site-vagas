@@ -8,7 +8,7 @@ feature 'User apply for job' do
                       description: 'Nossa empresa procura por desenvolvedores',
                       salary: 2.500, job_title: 'Júnior',
                       mandatory_requirements: 'Conhecimento em Rails 6.0',
-                      expiration_date: '21/02/2021', max_vacancies: 20,
+                      expiration_date: Date.tomorrow, max_vacancies: 20,
                       company: muzak_company)
     visitor = User.create!(email: 'murilo@gmail.com', password: '123456')
     visitor_account = Account.create!(name: 'Fulano', cpf:'000.000.000-00',
@@ -36,7 +36,7 @@ feature 'User apply for job' do
                               description: 'Nossa empresa procura por desenvolvedores',
                               salary: 2500, job_title: 'Júnior',
                               mandatory_requirements: 'Conhecimento em Rails 6.0',
-                              expiration_date: '21/03/2021', max_vacancies: 20,
+                              expiration_date: Date.tomorrow, max_vacancies: 20,
                               company: company)
 
     visit root_path
@@ -61,7 +61,7 @@ feature 'User apply for job' do
                               description: 'Nossa empresa procura por desenvolvedores',
                               salary: 2.500, job_title: 'Júnior',
                               mandatory_requirements: 'Conhecimento em Rails 6.0',
-                              expiration_date: '21/02/2021', max_vacancies: 20,
+                              expiration_date: Date.tomorrow, max_vacancies: 20,
                               company: company)
     visitor = User.create!(email: 'murilo@gmail', password: '123456', company: temporary_company)
 

@@ -1,11 +1,10 @@
-<% if user_signed_in? %>
-  <% if current_user.email.include?('gmail') == true || current_user.email.include?('hotmail') == true %>
-    <h2>Vagas</h2>
-    <% if @vacancies.empty? %>
-      <p>Não há vagas registradas</p>
-    <% else %>
-      <ul>
-      <% @vacancies.each do |vacancy| %>
+<h2>Vagas</h2>
+<% if @vacancies.empty? %>
+  <p>Não há vagas registradas</p>
+<% else %>
+  <ul>
+    <% @vacancies.each do |vacancy| %>
+      <% unless vacancy.expiration_date <= Time.now %>
         <li>
           <%= vacancy.company.name %>
           <%= vacancy.name %>
@@ -14,30 +13,6 @@
           <%= link_to 'Ver mais', vacancy_path(vacancy) %>
         </li>
       <% end %>
-      </ul>
     <% end %>
-  <% end %>
-
-<% else %>
-  <h2>Vagas</h2>
-  <% if @vacancies.empty? %>
-    <p>Não há vagas registradas</p>
-  <% else %>
-    <ul>
-      <% @vacancies.each do |vacancy| %>
-        <% unless vacancy.expiration_date <= Time.now %>
-          <li>
-            <%= vacancy.company.name %>
-            <%= vacancy.name %>
-            <%= vacancy.job_title %>
-            <%= vacancy.salary %>
-            <%= link_to 'Ver mais', vacancy_path(vacancy) %>
-          </li>
-        <% end %>
-      <% end %>
-      </ul>
-  <% end %>
+  </ul>
 <% end %>
-
-
-
